@@ -71,9 +71,9 @@ export default function Dashboard() {
     const map: Record<string, number> = {};
 
     data.forEach((item) => {
-      if (!item.created_at) return;
-
-      const date = new Date(item.created_at);
+      if (!item.updated_at) return;
+      
+      const date = new Date(item.updated_at);
       const month = `${date.getFullYear()}-${String(
         date.getMonth() + 1,
       ).padStart(2, "0")}`;
