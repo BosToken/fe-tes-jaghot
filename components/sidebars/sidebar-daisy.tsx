@@ -46,9 +46,9 @@ export default function DashboardLayoutTailwind({
         <div className="flex min-h-full flex-col items-start bg-base-200 is-drawer-close:w-14 is-drawer-open:w-64">
           <ul className="menu w-full grow">
             <li>
-              <button
+              <a
                 className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                data-tip="Homepage"
+                data-tip="Homepage" href="/"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -67,13 +67,14 @@ export default function DashboardLayoutTailwind({
                   <path d="M4 19h16" />
                 </svg>
                 <span className="is-drawer-close:hidden">Homepage</span>
-              </button>
+              </a>
             </li>
 
             <li>
               <a
                 className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                data-tip="House" href="/house"
+                data-tip="House"
+                href="/house"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -97,7 +98,8 @@ export default function DashboardLayoutTailwind({
             <li>
               <a
                 className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                data-tip="Resident" href="/resident"
+                data-tip="Resident"
+                href="/resident"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -121,7 +123,8 @@ export default function DashboardLayoutTailwind({
             <li>
               <a
                 className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                data-tip="Billing" href="/bill"
+                data-tip="Billing"
+                href="/bill"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -144,9 +147,10 @@ export default function DashboardLayoutTailwind({
             </li>
 
             <li>
-              <button
+              <a
                 className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
                 data-tip="Settings"
+                href="manage-bill"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -170,7 +174,36 @@ export default function DashboardLayoutTailwind({
                 <span className="is-drawer-close:hidden">
                   Manajemen Tagihan
                 </span>
-              </button>
+              </a>
+            </li>
+
+            <li>
+              <a
+                className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                data-tip="Pengeluaran"
+                href="expense"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="lucide lucide-banknote-arrow-down-icon lucide-banknote-arrow-down"
+                >
+                  <path d="M12 18H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5" />
+                  <path d="m16 19 3 3 3-3" />
+                  <path d="M18 12h.01" />
+                  <path d="M19 16v6" />
+                  <path d="M6 12h.01" />
+                  <circle cx="12" cy="12" r="2" />
+                </svg>
+                <span className="is-drawer-close:hidden">Pengeluaran</span>
+              </a>
             </li>
           </ul>
         </div>

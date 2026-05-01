@@ -213,11 +213,11 @@ export default function ResidentPage() {
 
   return (
     <LayoutTailwind title="Resident">
-      <CardDaisy title="">
+      <CardDaisy title="List Penghuni">
         <CardDaisy title="">
           <div className="grid grid-cols-9 gap-2">
             <div>
-              <button className="btn" onClick={handleCreate}>
+              <button className="btn btn-primary" onClick={handleCreate}>
                 Tambah
               </button>
             </div>
@@ -226,42 +226,47 @@ export default function ResidentPage() {
 
         <div className="mt-2">
           {loading ? (
-            <p>Loading...</p>
+            <p className="text-center">Loading...</p>
           ) : (
-            // @ts-ignore
-            <TableDaisy columns={columns} data={residents} />
+            <>
+              <TableDaisy
+                // @ts-ignore
+                columns={columns}
+                data={residents}
+              />
+              <div className="flex justify-center mt-4 gap-2">
+                <button
+                  className="btn btn-sm"
+                  disabled={currentPage === 1}
+                  onClick={() => fetchResidents(currentPage - 1)}
+                >
+                  «
+                </button>
+
+                {[...Array(lastPage)].map((_, i) => (
+                  <button
+                    key={i}
+                    className={`btn btn-sm ${
+                      currentPage === i + 1 ? "btn-primary" : ""
+                    }`}
+                    onClick={() => fetchResidents(i + 1)}
+                  >
+                    {i + 1}
+                  </button>
+                ))}
+
+                <button
+                  className="btn btn-sm"
+                  disabled={currentPage === lastPage}
+                  onClick={() => fetchResidents(currentPage + 1)}
+                >
+                  »
+                </button>
+              </div>
+            </>
           )}
         </div>
 
-        <div className="flex justify-center mt-4 gap-2">
-          <button
-            className="btn btn-sm"
-            disabled={currentPage === 1}
-            onClick={() => fetchResidents(currentPage - 1)}
-          >
-            «
-          </button>
-
-          {[...Array(lastPage)].map((_, i) => (
-            <button
-              key={i}
-              className={`btn btn-sm ${
-                currentPage === i + 1 ? "btn-primary" : ""
-              }`}
-              onClick={() => fetchResidents(i + 1)}
-            >
-              {i + 1}
-            </button>
-          ))}
-
-          <button
-            className="btn btn-sm"
-            disabled={currentPage === lastPage}
-            onClick={() => fetchResidents(currentPage + 1)}
-          >
-            »
-          </button>
-        </div>
       </CardDaisy>
 
       {createOpen && (
